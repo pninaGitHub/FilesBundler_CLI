@@ -120,7 +120,7 @@ namespace BundleCLI
 
             //2
             // שואל האם לדרוס ליצור חדש או לבטל
-            if (output.Exists)
+            if (output.Exists && !overwrite)
             {
                 Console.WriteLine($"\nThe file '{output.FullName}' already exists.");
                 Console.WriteLine("What would you like to do?");
@@ -160,6 +160,10 @@ namespace BundleCLI
                         Console.WriteLine("Invalid choice. Operation canceled.");
                         return;
                 }
+            }
+            else
+            {
+                Console.WriteLine("Overwriting the existing file...");
             }
 
 
