@@ -207,14 +207,14 @@ namespace BundleCLI
                     //שם הקובץ
                     var fileName = Path.GetFileName(file);
                     var fileType = Path.GetExtension(file);
-                    await writer.WriteLineAsync($"// File: {fileName} ( Type : {fileType} )\n");// הדפסה + שורה ריקה בין הכותרת לתוכן
+                    await writer.WriteLineAsync($"// File: {fileName} ( Type : {fileType} )");// הדפסה + שורה ריקה בין הכותרת לתוכן
 
                     //await writer.WriteLineAsync();
 
 
                     if (note)
                     {
-                        await writer.WriteLineAsync($"// Source: {file}");
+                        await writer.WriteLineAsync($"// Source: {file}\n\n");
                     }
 
                     var lines = await File.ReadAllLinesAsync(file);
@@ -228,8 +228,9 @@ namespace BundleCLI
                         await writer.WriteLineAsync(line);
                     }
                     //בשביל הסדר שיהיה מופרד ובולט שיש הבדל ביין הקבצים
-                    await writer.WriteLineAsync(); // שורה ריקה בין קבצים
-                    await writer.WriteLineAsync("/* --------------------------------------------------------------------------------------------------------------------------------- */\n"); // שורה של קו מפריד בין קבצים
+                    // שורה ריקה בין קבצים
+                    // שורה של קו מפריד בין קבצים
+                    await writer.WriteLineAsync("\n/* --------------------------------------------------------------------------------------------------------------------------------- */\n"); 
 
 
                 }
