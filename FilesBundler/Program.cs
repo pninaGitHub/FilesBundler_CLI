@@ -198,7 +198,7 @@ namespace BundleCLI
 
                 if (!string.IsNullOrWhiteSpace(author))
                 {
-                    await writer.WriteLineAsync($"// Author : {author}");
+                    await writer.WriteLineAsync($"// Author : {author}\n");
                 }
 
 
@@ -229,7 +229,6 @@ namespace BundleCLI
                     }
                     //בשביל הסדר שיהיה מופרד ובולט שיש הבדל ביין הקבצים
                     // שורה ריקה בין קבצים
-                    // שורה של קו מפריד בין קבצים
                     await writer.WriteLineAsync("\n/* --------------------------------------------------------------------------------------------------------------------------------- */\n"); 
 
 
